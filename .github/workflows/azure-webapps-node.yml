@@ -61,7 +61,7 @@ jobs:
     needs: build
     environment:
       name: 'Development'
-      url: ${{ hoahv.azurewebsites.net }}
+      url: hoahv.azurewebsites.net
 
     steps:
     - name: Download artifact from build job
