@@ -1,6 +1,7 @@
 const escapehtml = require("escape-html")
 const express = require("express")
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const path = require('path');
 
 const controller = require('./controller')
 
@@ -10,11 +11,14 @@ const PORT = 3000
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
-
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 app.get('/users', async (req, res) => {
-
-    const result = await controller.getAllUsers()
-    res.json(result)
+try {
+    res.render('index');
+} catch (error) {
+    console.log(error);
+}
 })
 
 app.get('/users/:id', async (req, res) => {
@@ -36,7 +40,7 @@ app.post('/users', async (req, res) => {
         const data = req.body
         console.log(data)
         await controller.createUser(data)
-        res.sendStatus(200)
+        res.status(200);
     } catch (error) {
         console.log(error)
         res.sendStatus(400)
