@@ -7,7 +7,7 @@ const controller = require('./controller')
 
 const app = express();
 
-const PORT = 3000
+const PORT = 5000
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
