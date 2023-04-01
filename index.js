@@ -13,6 +13,14 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.get('/', async (req, res) => {
+    try {
+        res.render('index');
+    } catch (error) {
+        console.log(error);
+    }
+    })
 app.get('/users', async (req, res) => {
 try {
     res.render('index');

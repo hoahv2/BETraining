@@ -56,6 +56,7 @@ jobs:
     permissions:
       contents: none
     runs-on: ubuntu-latest
+    needs: build
     environment:
       name: 'Development'
       url: hoahv.azurewebsites.net
