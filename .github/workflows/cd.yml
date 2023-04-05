@@ -1,4 +1,4 @@
-name: Test CI
+name: Test CD
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  CI:
+  CD:
     name: Run CI
     runs-on: ubuntu-latest
     steps:
