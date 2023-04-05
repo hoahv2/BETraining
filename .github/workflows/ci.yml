@@ -1,19 +1,19 @@
-name: Devtools
+name: Test CI
 
 on:
   push:
     branches:
-      - main
+      - '!master'
 
 jobs:
-  build:
-    name: Build
+  CI:
+    name: Run CI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.14.0'
+          node-version: '16'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --frozen-lockfile
